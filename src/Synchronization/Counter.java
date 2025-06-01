@@ -1,0 +1,24 @@
+package Synchronization;
+
+public class Counter {
+    private int count = 0;
+
+    // ✅ Synchronized Method
+    // Only one thread can access increment() on this object at a time
+    // JVM checks monitor of the object (monitor = intrinsic lock). If free → acquire → run → release.
+    // Intrinsic lock is associated with the object instance and is used to synchronize access to the method.
+    public synchronized void increment() {
+        count++; // Critical section: read-modify-write of shared state
+    }
+
+    // ✅ Synchronized Block (fine-grained control)
+    public void decrement() {
+        synchronized (this) {
+            count--;
+        }
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
