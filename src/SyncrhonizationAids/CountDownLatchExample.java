@@ -13,9 +13,9 @@ public class CountDownLatchExample {
 
         System.out.println("Main thread: Submitting dependent services...");
 
-        Future<String> future1 = executorService.submit(new DependentService(countDownLatch));
-        Future<String> future2 = executorService.submit(new DependentService(countDownLatch));
-        Future<String> future3 = executorService.submit(new DependentService(countDownLatch));
+        Future<String> future1 = executorService.submit(new DependentServiceLatch(countDownLatch));
+        Future<String> future2 = executorService.submit(new DependentServiceLatch(countDownLatch));
+        Future<String> future3 = executorService.submit(new DependentServiceLatch(countDownLatch));
 
         // Main thread waits here until latch count becomes 0
         System.out.println("Main thread: Waiting for all dependent services to complete...");

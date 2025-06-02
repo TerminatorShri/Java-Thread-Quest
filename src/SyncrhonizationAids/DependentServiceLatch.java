@@ -3,10 +3,10 @@ package SyncrhonizationAids;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 
-class DependentService implements Callable<String> {
+class DependentServiceLatch implements Callable<String> {
     private final CountDownLatch latch;
 
-    public DependentService(CountDownLatch latch) {
+    public DependentServiceLatch(CountDownLatch latch) {
         this.latch = latch;
     }
 
